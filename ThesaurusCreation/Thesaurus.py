@@ -7,6 +7,10 @@ def searchWord(word):
     word = word.lower()
     if word in thesaurus:
         return thesaurus[word]
+    elif word.capitalize() in thesaurus:
+        return thesaurus[word.capitalize()]
+    elif word.upper() in thesaurus:
+        return thesaurus[word.upper()]
     elif len(get_close_matches(word, thesaurus.keys())) > 0:
         guess = get_close_matches(word, thesaurus.keys())[0]
         yn = input("Did you mean %s instead? Enter Y if yes, or N if no " % guess)
